@@ -58,7 +58,8 @@ wget https://github.com/simplesamlphp/simplesamlphp/releases/download/v1.19.6/si
 tar xzf simplesamlphp-1.19.6.tar.gz
 mv simplesamlphp-1.19.6 simplesamlphp
 
-- create or updat Apache configuration file for the virtual hosts
+- create or update Apache configuration file for the virtual hosts
+####
     <VirtualHost *>
             ServerName service.example.com
             DocumentRoot /var/www/service.example.com
