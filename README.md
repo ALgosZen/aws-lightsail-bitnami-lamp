@@ -34,6 +34,8 @@ OR you can simply add the ip to the DNS record where your domain is currently re
 #### d. Regenerate the key without password protection from this file 
 - sudo openssl rsa -in privkey.pem -out /opt/bitnami/apache2/conf/server.key
 
+### SSL/TLS configuration end-end
+
 - Step 6: Ensure your domain is enabled SSL/TLS encryption mode end-end by deploying self signed or trusted CA on the server.
 ![ssl ](/images/img4.png?raw=true "ssl")
 
