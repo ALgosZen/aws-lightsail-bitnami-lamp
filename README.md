@@ -34,6 +34,13 @@ OR you can simply add the ip to the DNS record where your domain is currently re
 #### d. Regenerate the key without password protection from this file 
 - sudo openssl rsa -in privkey.pem -out /opt/bitnami/apache2/conf/server.key
 
+- Step 6: Ensure your domain is enabled SSL/TLS encryption mode end-end by deploying self signed or trusted CA on the server.
+![ssl ](/images/img4.png?raw=true "ssl")
 
 
+## Optional steps :
+- Creating snapshots
+#### https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-create-a-snapshot-of-your-instance
 
+- add additional block storage to lightsail instance
+#### https://lightsail.aws.amazon.com/ls/docs/en_us/articles/create-and-attach-additional-block-storage-disks-linux-unix
