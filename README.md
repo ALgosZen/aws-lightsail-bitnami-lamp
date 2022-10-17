@@ -25,14 +25,14 @@ above command runs from home dir. if you are in another sub dir run the command 
 https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-create-dns-entry
 OR you can simply add the ip to the DNS record where your domain is currently registered (google, cloudflare, godaddy etc.,)
 - Step 5: Create an SSL for apache - run following commands to create the certificate and add to your apache conf
-a. generate private key
-sudo openssl genrsa -out /opt/bitnami/apache2/conf/server.key 2048
-b. create a self signed cert
-sudo openssl x509 -in /opt/bitnami/apache2/conf/cert.csr -out /opt/bitnami/apache2/conf/server.crt -req -signkey /opt/bitnami/apache2/conf/server.key -days 365
-c. backup private key (with encrypted pw)
-sudo openssl rsa -des3 -in /opt/bitnami/apache2/conf/server.key -out privkey.pem
-d. Regenerate the key without password protection from this file 
-sudo openssl rsa -in privkey.pem -out /opt/bitnami/apache2/conf/server.key
+#### a. generate private key
+- sudo openssl genrsa -out /opt/bitnami/apache2/conf/server.key 2048
+####  b. create a self signed cert
+- sudo openssl x509 -in /opt/bitnami/apache2/conf/cert.csr -out /opt/bitnami/apache2/conf/server.crt -req -signkey /opt/bitnami/apache2/conf/server.key -days 365
+#### c. backup private key (with encrypted pw)
+- sudo openssl rsa -des3 -in /opt/bitnami/apache2/conf/server.key -out privkey.pem
+#### d. Regenerate the key without password protection from this file 
+- sudo openssl rsa -in privkey.pem -out /opt/bitnami/apache2/conf/server.key
 
 
 
