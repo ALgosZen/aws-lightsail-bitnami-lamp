@@ -40,7 +40,35 @@ OR you can simply add the ip to the DNS record where your domain is currently re
 ![ssl ](/images/img4.png?raw=true "ssl")
 
 
+
 ## Optional steps :
+- connecting to lightsail from windows putty or mac terminal
+#### make sure permissions are restricted before running the ssh command
+chmod 600 lightsail-keypair.pem
+####  then ssh into lightsail instance using
+ssh -i <key.pem> bitnami@instance_pub_ip
+
+- restart apache 
+#### sudo /opt/bitnami/ctlscript.sh restart apache
+- upgrade packages
+#### sudo apt install php-xml php-mbstring php-curl php-memcache php-ldap memcached
+
+- install simplesamlphp
+wget https://github.com/simplesamlphp/simplesamlphp/releases/download/v1.19.6/simplesamlphp-1.19.6.tar.gz
+tar xzf simplesamlphp-1.19.6.tar.gz
+mv simplesamlphp-1.19.6 simplesamlphp
+
+- create or updat Apache configuration file for the virtual hosts
+    <VirtualHost *>
+            ServerName service.example.com
+            DocumentRoot /var/www/service.example.com
+            SetEnv SIMPLESAMLPHP_CONFIG_DIR /var/simplesamlphp/config
+            Alias /simplesaml /var/simplesamlphp/www
+            <Directory /var/simplesamlphp/www>
+                Require all granted
+            </Directory>
+    </VirtualHost>
+
 - Creating snapshots
 #### https://lightsail.aws.amazon.com/ls/docs/en_us/articles/lightsail-how-to-create-a-snapshot-of-your-instance
 
